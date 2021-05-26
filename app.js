@@ -8,6 +8,7 @@ var session=require('express-session');
  
 
 
+var newRouter = require('./routes/new');
 //连接数据库
 // var mysql =require('mysql');
 // var connection =mysql.createConnection({
@@ -78,6 +79,8 @@ app.use('/basic',basicRouter);
 app.use('/register',registerRouter);
 
 app.use('/blank',blankRouter);
+
+app.use('/new', newRouter);
 // catch 404 and forward to error handler
 // app.use('/add',addRouter);
 // app.use('/update',updateRouter);
