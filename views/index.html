@@ -48,7 +48,7 @@
             <!-- top Menu -->
             <div class="collapse navbar-collapse" id="navbarTheme">
               <ul class="navbar-nav align-items-start align-items-lg-center">
-                <li class="active"><a class="nav-link" href="./index">Home</a></li>
+                <li class="active"><button class="nav-link" id="home">Home</button></li>
                 <li><a class="nav-link" href="./about">About Us</a></li>
                 <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Destinations</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown02"> <a class="dropdown-item" href="./destinations">Destinations</a></div>
@@ -250,18 +250,19 @@
         <!-- popular hotel box -->
         <div class="popular-hotel-box">
         <%
-           for(var o of data){
-          %>
+        for(var o of data){
+        %>
           <div class="imege mb-10"><img src="images/img/popular-hotel/1.jpg" alt="">
             <div class="black-bg"> <a href=""><i class="fas fa-map-marker-alt"></i> Thailand</a> </div>
           </div>
           <div class="reting"> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> </div>
-          <h4><a href=""><%=o.title></a></h4>
-          <div class="price">o.money<span>Per night</span></div>
+          <h4><a href=""><%=o.title%></a></h4>
+          <div class="price"><%=o.money%><span>Per night</span></div>
         </div>
           <%
-           }
-           %>
+           } 
+          %>
+         
  <!-- popular hotel box end --> 
       </div>
     </div>
@@ -673,7 +674,7 @@
 <!-- ================ Top scroll ================ --> 
 <a href="#" class="scroll-top">Top</a> 
 <!-- ================ Top scroll end ================ --> 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	function register() {
         var city = $('#city').val();
         var check_in = $('#check_in').val();
@@ -707,7 +708,7 @@
 			dataType: 'text' //设置返回的数据类型
 		})
 	}
-</script>
+</script> -->
 
 <!-- js files --> 
 <script src="javascripts/js/jquery-3.5.1.min.js"></script> 
@@ -726,5 +727,6 @@
 <script src="javascripts/js/datepicker.min.js"></script> 
 <!-- script js --> 
 <script src="javascripts/js/custom.js"></script>
+<script src="javascripts/js/home.js"></script>
 </body>
 </html>

@@ -7,22 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/admin"method="POST">
+<form action="/admin"method="POST">
     <input type="text" name="search" placeholder="搜索"/>
     <input type="submit"/>
 </form>
     <input type="button"value="add" onclick="add()">
     <table>
-        <% for(var o of data){%>
+     <% for(var o of data){%> 
         <tr>
-            <td><%=o.id %></td>
-            <td><%=o.title %></td>
+            <td><%=o.id%></td>
+            <td><%=o.title%></td>
+            <td><%=o.money%></td>
         <td>
             <input type="button"class="upd"value="修改"data_id="<%=o.id%>"/>
             <input type="button"class="del" value="删除"data_id="<%=o.id%>"/>
         </td>
         </tr>
-        <% }%>
+        <% }%> 
     </table>
     <script>
         function add(){
