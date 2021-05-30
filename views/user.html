@@ -12,7 +12,7 @@
     邮箱：<input type="text" name="s_Email" value="{{s_Email}}"><br>
     密码：<input type="text" name="s_password" value="{{s_password}}"><br>
     <input type="submit" value="查询">
-    <a href="/use/add">新增</a>
+    <a href="/user/add">新增</a>
 </form>
 
 <table>
@@ -27,8 +27,8 @@
         <td>{{value.Name}}</td>
         <td>{{value.age}}</td>        <td>{{value.Email}}</td>
         <td>{{value.password}}</td>
-        <td><a href="/use/del/{{value.Name}}">删除</a></td>
-        <td><a href="/use/toUpdate/{{value.Name}}">修改</a></td>
+        <td><a href="/user/del/{{value.Name}}">删除</a></td>
+        <td><a href="/user/toUpdate/{{value.Name}}">修改</a></td>
     </tr>
     {{/each}}
 </table>

@@ -28,7 +28,7 @@ router.post('/update', function (req, res) {
             if (err) {
                 res.end('修改失败:' + err);
             } else {
-                res.redirect('/use');
+                res.redirect('/user');
             }
             connection.release();
         });

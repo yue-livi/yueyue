@@ -8,7 +8,6 @@ var session=require('express-session');
  
 
 
-var newRouter = require('./routes/new');
 //连接数据库
 // var mysql =require('mysql');
 // var connection =mysql.createConnection({
@@ -40,16 +39,16 @@ var basicRouter=require('./routes/basic');
 var app = express();
 var identityKey='skey';
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.engine('.html',ejs.__express);
-// app.set('view engine', 'html');
-
 app.set('views', path.join(__dirname, 'views'));
-var template = require('art-template');
-template.config('base','');
-template.config('extname','.html');
-app.engine('.html',template.__express);
-app.set('view engine','html');
+app.engine('.html',ejs.__express);
+app.set('view engine', 'html');
+
+// app.set('views', path.join(__dirname, 'views'));
+// // var template = require('art-template');
+// // template.config('base','');
+// // template.config('extname','.html');
+// app.engine('.html',template.__express);
+// app.set('view engine','html');
 
 
 
@@ -80,7 +79,7 @@ app.use('/register',registerRouter);
 
 app.use('/blank',blankRouter);
 
-app.use('/new', newRouter);
+
 // catch 404 and forward to error handler
 // app.use('/add',addRouter);
 // app.use('/update',updateRouter);
