@@ -4,7 +4,7 @@ var db=require('./db');
 // /* GET home page. */
 router.get('/', function(req, res, next) {
   db.query("select*from tab_work",(err,result)=>{
-    console.log(result);
+    // console.log(result);
   });
   res.render('index', { data: 'result' });
 });
