@@ -28,7 +28,7 @@ var signinRouter=require('./routes/signin');
 var registerRouter=require('./routes/register');
 var homeRouter=require('./routes/home');
 var blankRouter=require('./routes/blank');
-
+var adminRouter=require('./routes/admin');
 var basicRouter=require('./routes/basic');
 //const{Cookie}=require('express-session');
 // var addRouter=require('./routes/add');
@@ -76,7 +76,7 @@ app.use('/',signinRouter);
 app.use('/home',homeRouter);
 app.use('/basic',basicRouter);
 app.use('/register',registerRouter);
-
+app.use('/admin',adminRouter);
 app.use('/blank',blankRouter);
 
 

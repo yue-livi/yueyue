@@ -1,19 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body>
-    <form action="/admin/add" method="POST">
-        <input type="hidden" name="id"  />
-        <input type="text" name="title"  placeholder="标题"/>
-        <br/>
-        <input type="number" name="money"  placeholder="价位"/>
-        <br/>
-        <button class="button">提交</button>
-    </form>
+<body class="export">
+    <form action="/admin/add"method="POST">
+        <div class="container content_width">
+            <div class="person_search">
+                <div class="search_input">
+                    <div class="input-group mb-3" >
+                        <span>标题：</span>
+                        <input id="Ktext" type="text" class="form-control" placeholder="请输入标题">
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+        </div>
+    <input type="text" name="title" placeholder="title"/>
+</br>
+<input type="submit"/>
+</form>
+
 </body>
 </html>
