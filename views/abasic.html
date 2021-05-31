@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <!-- <a style="font-size: 30px;">id:<%=detail.id%></a> -->
+    <form action="/basic/abasic" method="POST">
+        <input type="hidden" name="id" value="<%=detail.id%>" />
+        <input type="text" name="username" value="<%=detail.username%>" placeholder="用户名"/>
+        <br/>
+        <input type="number" name="phone" value="<%=detail.phone%>" placeholder="电话"/>
+        <br/>
+        <input type="text" name="book_time" value="<%=detail.book_time%>" placeholder="预定时间"/>
+        <br/>
+        <button class="button">提交</button>
+    </form>
+</body>
+</html>

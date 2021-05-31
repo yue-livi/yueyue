@@ -14,7 +14,7 @@ router.post('/',(req,res)=>{
       });
 })
 
-
+//添加
 router.get('/add',(req,res)=>{
     res.render('add');
 });
@@ -23,6 +23,7 @@ router.post('/add',(req,res)=>{
         res.redirect('/admin');
     })
 });
+//修改
 router.get('/update/:id',(req,res)=>{
     db.queryParam("select * from tab_work where id=?",[req.params.id],(err,result)=>{
         res.render('update',{obj:result[0]});

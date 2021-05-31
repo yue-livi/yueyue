@@ -27,9 +27,10 @@ var teamRouter=require('./routes/team');
 var signinRouter=require('./routes/signin');
 var registerRouter=require('./routes/register');
 var homeRouter=require('./routes/home');
-var blankRouter=require('./routes/blank');
 var adminRouter=require('./routes/admin');
 var basicRouter=require('./routes/basic');
+var adRouter = require('./routes/ad');
+
 //const{Cookie}=require('express-session');
 // var addRouter=require('./routes/add');
 // var useRouter=require('./routes/use');
@@ -77,7 +78,9 @@ app.use('/home',homeRouter);
 app.use('/basic',basicRouter);
 app.use('/register',registerRouter);
 app.use('/admin',adminRouter);
-app.use('/blank',blankRouter);
+app.use('/ad',adRouter);
+
+
 
 
 // catch 404 and forward to error handler

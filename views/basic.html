@@ -45,23 +45,6 @@
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="./home">
-                        <!-- Logo icon -->
-                        <b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="images/logo-icon.png" alt="homepage" class="dark-logo" />
-                            
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span>
-                            <!-- dark Logo text -->
-                            <img src="images/logo-text.png" alt="homepage" class="dark-logo" />
-                        </span>
-                    </a>
-                </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
@@ -107,13 +90,6 @@
                         
                         <li>
                             <a href="./basic" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Basic Table</a>
-                        </li>
-                        
-                        <li>
-                            <a href="./blank" class="waves-effect"><i class="fa fa-columns m-r-10" aria-hidden="true"></i>Blank Page</a>
-                        </li>
-                        <li>
-                            <a href="./error" class="waves-effect"><i class="fa fa-info-circle m-r-10" aria-hidden="true"></i>Error 404</a>
                         </li>
                     </ul>
                     <div class="text-center m-t-30">
@@ -164,53 +140,58 @@
                                 <h4 class="card-title">Basic Table</h4>
                                 <h6 class="card-subtitle">Add class <code>.table</code></h6>
                                 <div class="table-responsive">
+                                    <form action="/admin" method="POST">
+                                        <div class="container content_width" action="/admin" method="POST">
+                                            <div class="person_search">
+                                                <div class="search_input">
+                                                    <div class="input-group mb-3" >
+                                                        <span>用户名：</span>
+                                                        <input name="username" id="Ktext" type="text" class="form-control" placeholder="请输入标题">
+                                                    </div>
+                                                </div>
+                                             
+                                                <div class="search_input">
+                                                    <button class="btn btn-primary search_btn" type="submit" name="search" id="search_btn">查询</button>
+                                                </div>
+                                            </div>
+                                            <div class="line"></div>
+                                        </div>
+                                </form>
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                <th>ID</th>
+                                                <th>用户名</th>
+                                                <th>电话号码</th>
+                                                <th>预定时间</th>
+                                                <th>操作</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Deshmukh</td>
-                                                <td>Gaylord</td>
-                                                <td>@Ritesh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Sanghani</td>
-                                                <td>Gusikowski</td>
-                                                <td>@Govinda</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Roshan</td>
-                                                <td>Rogahn</td>
-                                                <td>@Hritik</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Joshi</td>
-                                                <td>Hickle</td>
-                                                <td>@Maruti</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Nigam</td>
-                                                <td>Eichmann</td>
-                                                <td>@Sonu</td>
-                                            </tr>
+                                        <tbody id="showdata">
+                                            <% detail.forEach(o =>{ %>
+                                                <tr>
+                                                    <td><%=o.ID %></td>
+                                                    <td><%=o.username %></td>
+                                                    <td><%=o.phone %></td>
+                                                    <td><%=o.book_time %></td>
+                                                    <td>
+                                                        <a href="/basic/delete/<%=o.ID %>" class="del_button">删除</a>
+                                                        <a href="/basic/edit/<%=o.id %>" class="upd_button">修改</a>
+                                                     </td>
+                                                </tr>
+                                                <% }) %>
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                              <th colspan="7">
+                                                <div align="center">
+                                                  <a href="/ad" id="add_button">
+                                                    <button type="button" class="ui teal button m-mobile-wide m-margin-top"><i class="pencil icon"></i>添加</button>
+                                                  </a>
+                                                </div>
+                                              </th>
+                                            </tr>
+                                            </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -236,12 +217,6 @@
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="plugins/bootstrap/js/tether.min.js"></script>
