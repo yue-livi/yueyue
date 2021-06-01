@@ -140,8 +140,8 @@
                                 <h4 class="card-title">Basic Table</h4>
                                 <h6 class="card-subtitle">Add class <code>.table</code></h6>
                                 <div class="table-responsive">
-                                    <form action="/admin" method="POST">
-                                        <div class="container content_width" action="/admin" method="POST">
+                                    <form action="/basic" method="POST">
+                                        <div class="container content_width" >
                                             <div class="person_search">
                                                 <div class="search_input">
                                                     <div class="input-group mb-3" >
@@ -168,7 +168,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="showdata">
-                                            <% detail.forEach(o =>{ %>
+                                             <% for(var o of detail){%>
                                                 <tr>
                                                     <td><%=o.ID %></td>
                                                     <td><%=o.username %></td>
@@ -176,10 +176,10 @@
                                                     <td><%=o.book_time %></td>
                                                     <td>
                                                         <a href="/basic/delete/<%=o.ID %>" class="del_button">删除</a>
-                                                        <a href="/basic/edit/<%=o.id %>" class="upd_button">修改</a>
+                                                        <a href="/basic/edit/<%=o.ID %>" class="upd_button">修改</a>
                                                      </td>
                                                 </tr>
-                                                <% }) %>
+                                                <% } %>
                                         </tbody>
                                         <tfoot>
                                             <tr>

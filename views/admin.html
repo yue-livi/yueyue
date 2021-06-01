@@ -15,7 +15,7 @@
 </head>
 <body>
     <form action="/admin" method="POST">
-        <div class="container content_width" action="/admin" method="POST">
+        <div class="container content_width">
             <div class="person_search">
                 <div class="search_input">
                     <div class="input-group mb-3" >
@@ -50,6 +50,12 @@
             <% }%>
     </table>
     <script>
+      Array.from(document.getElementsByClassName("d")).forEach(i=>{
+    i.onclick = function(){
+        let ind = this.getAttribute("data-id");
+        window.location.href = '/admin/delect/'+ind;
+    }
+})
  
 document.getElementById("add_button").onclick = function(){
     window.location.href='/admin/add';

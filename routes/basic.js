@@ -13,11 +13,10 @@ var connection = mysql.createConnection({
     database: "oo"
 });
 
-
 router.get('/',(req,res) => {
-   connection.query("select * from tab_w order by id desc",function(err,results){
+   connection.query("select * from tab_w order by ID desc",function(err,results){
     var datastring = JSON.stringify(results);
-    var data = JSON.parse(datastring);
+     var data= JSON.parse(datastring);
     res.render('basic',{
       "detail":data
     });
@@ -30,34 +29,6 @@ router.get('/delete/:ID',(req,res) =>{
     res.redirect('/basic')
   })
 });
-
-//修改后台管理页面内的数据
-router.get('/edit/:id',(req,res) => {
-  connection.query("select * from tab_w where id ='"+req.params.id+"'",function(err,results){
-    if(err){
-      console.log("err",err)
-    }
-    var data = {
-      "id":results[0].id,
-      "name":results[0].name,
-      "phone":results[0].phone,
-      "book_time":results[0].book_time,
-    }
-    console.log('result:',data);
-    res.render('abasic',{"detail":data});
-  });
-});
-
-//后台用户信息编辑表单
-router.post('/edit/:id',(req,res) => {
-  connection.query("update tab_w set username = '"+req.body.username+"',phone = '"+req.body.phone+"',book_time = '"+req.body.book_time+"'  where id='"+req.body.id+"'",function(err,results){
-    if(err){
-      console.log("err",err)
-    }
-    res.redirect('/basic')
-  });
-});
-
 //后台查询
 router.post('/', (req, res) => {
   var searchSQL = "select * from tab_w where username = '" + req.body.username + "'";
@@ -79,6 +50,38 @@ router.post('/', (req, res) => {
 
 
 router.get('/abasic',(req,res) =>{
-  res.render('abasic',{detail:{},id:""});
+  res.render('ad',{obj:{},id:""});
 });
+//修改后台管理页面内的数据
+router.get('/edit/:ID',(req,res) => {
+  connection.query("select * from tab_w where ID ='"+req.params.ID+"'",function(err,results){
+    if(err){
+      console.log("err",err)
+    }
+    var data = {
+      "ID":results[0].ID,
+      "username":results[0].username,
+      "phone":results[0].phone,
+      "book_time":results[0].book_time,
+    }
+    console.log('result:',data);
+    res.render('abasic',{"detail":data});
+  });
+});
+//后台用户信息编辑表单
+router.post('/edit',(req,res) => {
+  connection.query("UPDATE tab_w SET username=?,phone=?,book_time=? WHERE ID=?",[req.body.username,req.body.phone,req.body.book_time,req.body.ID],function(err,results){
+    if(err){
+      console.log("err",err)
+    }else{
+      res.redirect('/basic');
+  //   connection.query("select * from tab_w order by ID desc",function(err,results){
+  //   var datastring = JSON.stringify(results);
+  //    var data= JSON.parse(datastring);
+  //   res.render('basic',{"detail":data});
+  // });
+  }
+})
+})
+
 module.exports = router;
