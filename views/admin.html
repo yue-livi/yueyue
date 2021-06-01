@@ -14,28 +14,10 @@
 <script src="/javascripts/js/bootbox.min.js"></script>
 </head>
 <body>
-    <form action="/admin" method="POST">
-        <div class="container content_width">
-            <div class="person_search">
-                <div class="search_input">
-                    <div class="input-group mb-3" >
-                        <span>标题：</span>
-                        <input id="Ktext" type="text" class="form-control" placeholder="请输入标题">
-                    </div>
-                </div>
-                <div class="search_input">
-                    <div class="input-group mb-3" hidden>
-                        <span>号码：</span>
-                        <input id="job_num" type="text" class="form-control" placeholder="请输入号码">
-                    </div>
-                </div>
-                <div class="search_input">
-                    <button class="btn btn-primary search_btn" type="button" name="search" id="search_btn">查询</button>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-</form>
+        <form action="/admin" method="POST">
+            <input type="text" name="search" placeholder="搜索"/>
+            <input type="submit"/>
+         </form>
     <input type="button" class="btn btn-primary search_btn" value="添加" id="add_button"/>
     <table id="tb" class="table">
         <% for(var o of data){%>
@@ -52,8 +34,7 @@
     <script>
       Array.from(document.getElementsByClassName("d")).forEach(i=>{
     i.onclick = function(){
-        let ind = this.getAttribute("data-id");
-        window.location.href = '/admin/delect/'+ind;
+        window.location.href = '/admin/del/'+this.getAttribute('data_id');
     }
 })
  

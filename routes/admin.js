@@ -12,8 +12,14 @@ router.post('/',(req,res)=>{
     db.queryParam("select * from tab_work where title=?",[req.body.search,req.body.search],(err,result)=>{
         res.render('admin', { data:result});
       });
-})
-
+});
+  
+  router.get('/del/:id',(req,res) => {
+    db.queryParam("delete from tab_work where id=?",[req.params.id],(err,result)=>{
+        res.redirect('/admin')
+      })
+    });
+  
 
 //添加
 router.get('/add',(req,res)=>{
